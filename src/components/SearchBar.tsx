@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Magnifier from '../assets/magnifying-glass.svg';
 import Cross from '../assets/cross.svg';
 
+interface props {
+  search: string;
+  setSearch: (value: string | ((prevVar: string) => string)) => void;
+}
 
-const SearchBar: React.FC = () => {
-  const [value, setValue] = useState('');
+const SearchBar: React.FC<props> = ({search, setSearch}) => {
   return (
     <form onSubmit={e => e.preventDefault()} className="search">
       <label htmlFor="header-search">
@@ -14,13 +17,13 @@ const SearchBar: React.FC = () => {
         type="text"
         placeholder="Search"
         required
-        value={value}
-        onChange={e => setValue(e.currentTarget.value)}
+        value={search}
+        onChange={e => setSearch(e.currentTarget.value)}
         className='search_field'
       />
-      { value ?
+      { search ?
         <button
-          onClick={() => setValue('')}
+          onClick={() => setSearch('')}
           className="clear_btn" >
           <img
             className="clear_icon"
@@ -34,17 +37,17 @@ const SearchBar: React.FC = () => {
       }
       <button
         type="submit"
-        disabled={!value}
-        onClick={() => setValue('')}
+        disabled={!search}
+        onClick={() => setSearch('')}
         className="search_btn"
-        style={ value ? {backgroundColor: '#1f2dff'}
+        style={ search ? {backgroundColor: '#1f2dff'}
           : {backgroundColor: "white"}
         }>
         <img
           className="search_icon"
           src={Magnifier}
           alt="Search Icon"
-          style={ value ? {color: "white"}
+          style={ search ? {color: "white"}
             : {color: "darkgrey"}
           }
         />
