@@ -1,10 +1,9 @@
 import React from 'react';
+import Search from './components/Search';
 
 function App() {
   return (
-    <p>
-      Edit <code>src/App.tsx</code> and save to reload.
-    </p>
+    <Search />
   );
 }
 
