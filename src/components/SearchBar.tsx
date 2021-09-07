@@ -4,7 +4,7 @@ import Cross from '../assets/cross.svg';
 
 interface props {
   search: string;
-  setSearch: (value: string | ((prevVar: string) => string)) => void;
+  setSearch: (value: string | ((prevValue: string) => string)) => void;
 }
 
 const SearchBar: React.FC<props> = ({search, setSearch}) => {
