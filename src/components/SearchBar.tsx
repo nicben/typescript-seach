@@ -8,10 +8,11 @@ interface props {
 }
 
 const SearchBar: React.FC<props> = ({search, setSearch}) => {
+
   return (
     <form onSubmit={e => e.preventDefault()} className="search">
       <label htmlFor="header-search">
-        <span className="visually_hidden">Search</span>
+        <span className="hidden-label">Search</span>
       </label>
       <input
         type="text"
@@ -40,7 +41,7 @@ const SearchBar: React.FC<props> = ({search, setSearch}) => {
         disabled={!search}
         onClick={() => setSearch('')}
         className="search_btn"
-        style={ search ? {backgroundColor: '#1f2dff'}
+        style={ search ? {backgroundColor: '#1a25cf'}
           : {backgroundColor: "white"}
         }>
         <img

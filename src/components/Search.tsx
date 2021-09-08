@@ -7,7 +7,7 @@ const Search = () => {
 
   return (
     <div className='container'>
-      <SearchBar search={search.shipSearch}  setSearch={search.setShipSearch}/>
+      <SearchBar search={search.shipSearch} setSearch={search.setShipSearch}/>
       <SearchResults  ships={search.shipsFound}/>
     </div>
   );
